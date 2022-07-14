@@ -30,7 +30,7 @@ If you'd like to contribute to this project, that's wonderful. You can fork it t
 ## Tests 
 If you'd like to test this, you'll need to clone the repo and follow the [installation](#installation) directions.
 
-Or you can follow along in [this video I made!]()
+Or you can follow along in [this video I made!](https://drive.google.com/file/d/1PLyMgVg5jckH9n5h4NxTFVSkoRm9vG3B/view)
 
 
 ## Questions
