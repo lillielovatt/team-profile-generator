@@ -64,11 +64,12 @@ const promptManagerAdd = () => {
     ]).then(managerData => {
         const { name, email, id, officeNumber } = managerData; //can be out of order, cuz the name is the same
         const manager = new Manager(name, email, id, officeNumber); //CANNOT BE OUT OF ORDER
-        teamArray.push(manager);
+        // teamArray.push(manager);
+        return [manager];
     })
 };
 
-const promptEmployeeAdd = employeeAddQuestion => {
+const promptEmployeeAdd = employeeDataArr => {
     return inquirer.prompt([
         {
             type: "list",
@@ -150,18 +151,19 @@ const promptEmployeeAdd = employeeAddQuestion => {
     ]).then(employeeAddData => {
         // checks if user asked to Finish, in which case return is invoked
         // or else returns the callback function call to return to the beginning of this function, and ask question again to add more or finish
+        const arr = employeeDataArr;
         if (employeeAddData.addEmployee === "Finished!") {
-            return employeeAddData; //need this for promise chain
+            return arr; //need this for promise chain
         } else if (employeeAddData.addEmployee === "Intern") {
             const { name, email, id, school } = employeeAddData;
             const intern = new Intern(name, email, id, school);
-            teamArray.push(intern);
-            return promptEmployeeAdd(employeeAddData); //run function again
+            arr.push(intern);
+            return promptEmployeeAdd(arr); //run function again
         } else if (employeeAddData.addEmployee === "Engineer") {
             const { name, email, id, github } = employeeAddData;
             const engineer = new Engineer(name, email, id, github);
-            teamArray.push(engineer);
-            return promptEmployeeAdd(employeeAddData); //run function again
+            arr.push(engineer);
+            return promptEmployeeAdd(arr); //run function again
         }
     });
 };
@@ -181,7 +183,8 @@ function writeFile(fileName, data) {
 promptManagerAdd()
     .then(promptEmployeeAdd)
     .then(allEmployeeData => {
-        return generateHTML(teamArray);
+        console.log(allEmployeeData);
+        return generateHTML(allEmployeeData);
     })
     .then(employeeHTML => {
         return writeFile("team-profile", employeeHTML);
@@ -189,3 +192,8 @@ promptManagerAdd()
     .catch(err => {
         console.log(err);
     });
+    // async function cLog(){
+    //    let pm =  await promptManagerAdd();
+    //    console.log(pm);
+    // }
+    // cLog();

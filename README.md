@@ -16,7 +16,7 @@
 
 ## Installation
 
-To use the Team Profile generator, you'll need access to a whole slew of files--the lib folder has all files related to the Object classes built to accomodate data for employees of all types, and at the root you'll find . Additionally, you'll need Node.js to download npm, and the packages "inquirer" for logging user responses, and "fs" for writing to a file. Using your command line, you can do all these steps and be on your way in no time!
+To use the Team Profile generator, you'll need access to a whole slew of files--the lib folder has all files related to the Object classes built to accomodate data for employees of all types, and at the root you'll find index.js, which you run from the command line, and generateHTML.js which translates the user's data into an HTML file. Additionally, you'll need Node.js to download npm, and the packages "inquirer" for logging user responses, and "fs" for writing to a file. Using your command line, you can do all these steps and be on your way in no time!
 
 ## Usage 
 
