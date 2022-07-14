@@ -1,24 +1,24 @@
-function generateEmployeeSpecificInformation(employee){
-    let string="";
-    if(employee.getRole()==="Engineer"){
-        string =`<span class="font-weight-bold"> GitHub: <span> <a href="https://github.com/${employee.github}">${employee.github}</a>`;
-    } else if(employee.getRole()==="Manager"){
-        string=`<span class="font-weight-bold">Office Number: </span>${employee.officeNumber}`;
-    } else if(employee.getRole()==="Intern"){
-        string=`<span class="font-weight-bold">School: </span>${employee.school}`;
-    } 
+function generateEmployeeSpecificInformation(employee) {
+    let string = "";
+    if (employee.getRole() === "Engineer") {
+        string = `<span class="font-weight-bold"> GitHub: <span> <a href="https://github.com/${employee.github}">${employee.github}</a>`;
+    } else if (employee.getRole() === "Manager") {
+        string = `<span class="font-weight-bold">Office Number: </span>${employee.officeNumber}`;
+    } else if (employee.getRole() === "Intern") {
+        string = `<span class="font-weight-bold">School: </span>${employee.school}`;
+    }
     return string;
 };
 
 function generateEmployeeDataHTML(teamArr, employeeType) {
-    let string="";
+    let string = "";
     teamArr.filter(employee => {
-        //sifts thru array for only the Employee type we want, so profile is ordered from Manager, Engineer, then Intern, as called in file below.
-        return employee.getRole()===employeeType
+        //returns only the Employee type, keeps profiles ordered: Manager, Engineer, then Intern, as called in file below.
+        return employee.getRole() === employeeType
     }).map(employee => {
         // checks to make sure such an Employee type exists; in the case that there are no Interns/no Engineers, for ex, it will return empty string
-        if(employee.length!=0){
-        string+= `
+        if (employee.length != 0) {
+            string += `
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body">

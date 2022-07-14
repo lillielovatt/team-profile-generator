@@ -1,9 +1,9 @@
-# README Generator
+# Team Profile Generator
 
 
 ## Description
 
-
+You have a team, you want to list them, and writing by hand is so 2002. What to do? Try out the new Team Profile Generator! With this handy tool, you can create a brand new HTML sheet with the manager of your team, and all engineers and interns. Every employee has their name, email, and employee ID displayed, as well as a property unique to their role--for managers, it's office number; for engineers, it's their GitHub username; and for interns, it's their school. Go ahead, try it out!
 
 
 ## Table of Contents
